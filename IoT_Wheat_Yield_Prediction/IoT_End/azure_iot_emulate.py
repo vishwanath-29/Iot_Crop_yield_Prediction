@@ -1,5 +1,6 @@
 import random  
 import time
+import sys
 
 
 from azure.iot.device import IoTHubDeviceClient, Message  
@@ -33,6 +34,7 @@ while True:
                 time.sleep(3)  
         except KeyboardInterrupt:  
             print ( "IoTHubClient stopped" ) 
+            sys.exit(0)
     if __name__ == '__main__':  
         print ( "Press Ctrl-C to exit" )  
         iothub_client_telemetry_sample_run()
