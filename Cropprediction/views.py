@@ -6,8 +6,6 @@ import random
 import pickle
 import pandas as pd
 # Home Page
-def home(request):
-    return HttpResponse("Home")
 
 def yield_prediction(temperature,humidity,pH,moisture,rainfall):
     model = pickle.load(open('/home/vishwa/Work/Programming/VsCode/Web/Django/IoT-Wheat-yield-prediction/wheat_yield_prediction_model.pkl', 'rb'))
@@ -39,6 +37,22 @@ def prediction_page(request):
     valuetime = valuedatetime.strftime('%H:%M:%S')
     valuedate=valuedatetime.date()
     
-    print(temperature," ",humidity," ",pH," ",moisture," ",valuetime," ",valuedate)
     yield_predicted=yield_prediction(temperature,humidity,pH,moisture,rainfall)
-    return HttpResponse(yield_predicted)
+    print(temperature," ",humidity," ",pH," ",moisture," ",valuetime," ",valuedate)
+    # data = {
+    #     "temp":temperature,
+    #     "humidity":humidity,
+    #     "pH":pH,
+    #     "moisture":moisture,
+    #     "valuetime":valuetime,
+    #     "valuedate":valuedate
+
+    # }
+    return render(request,"Cropprediction/index.html",{'data':sensor_values,'yield_prediction':yield_predicted})
+    
+
+def home(request):
+    
+    # return render(request,"Cropprediction/index.html")
+    return HttpResponse("Home")
+    
