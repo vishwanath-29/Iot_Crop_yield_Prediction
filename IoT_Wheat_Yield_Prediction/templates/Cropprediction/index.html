@@ -1,3 +1,4 @@
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-    <link href="./output.css" rel="stylesheet">
+    <link href="{% static 'css/output1.css' %}" rel="stylesheet">
     <title>Dashboard</title>
 </head>
 <body>
@@ -21,12 +22,12 @@
                 <div class="right-container flex justify-between w-28">
                     <a href="">
                         <div class="notification text-white p-2">
-                            <img src="/bell-icon.png" width="20"  alt="">
+                            <img src="{% static 'imgs/bell-icon.png' %}" width="20"  alt="">
                         </div> 
                     </a>
                     <a href="">
                         <div class="profile text-white">
-                            <img src="/profile-icon.png" width="40" height="30" alt="">
+                            <img src="{% static 'imgs/profile-icon.png' %}" width="40" height="30" alt="">
                         </div>
                     </a>
                 </div>
@@ -43,19 +44,19 @@
                         <div class="card lg:py-4 md:py-2 sm:py-1 shadow-sm rounded-lg lg:w-60 md:w-48 sm:w-40  my-3 mb-20">
                             <div class="content">
                                 <div class="title-of-card py-2 lg:text-xl md:text-lg text-white text-center">pH</div>
-                                <div class="value py-2 text-white text-center">6.7</div>
+                                <div class="value py-2 text-white text-center">{{data.ph}}</div>
                             </div>
                         </div>
                         <div class="card lg:py-4 md:py-2 sm:py-1 shadow-md rounded-lg lg:w-60 md:w-48 sm:w-40  my-3 mb-20  ">
                             <div class="content">
                                 <div class="title-of-card py-2 lg:text-xl md:text-lg text-white text-center">Temperature</div>
-                                <div class="value py-2 text-white text-center">24 C</div>
+                                <div class="value py-2 text-white text-center">{{data.temperature}} C</div>
                             </div>
                         </div>
                         <div class="card lg:py-4 md:py-2 sm:py-1 shadow-md rounded-lg lg:w-60 md:w-48 sm:w-40  my-3 mb-20  ">
                             <div class="content">
                                 <div class="title-of-card py-2 lg:text-xl md:text-lg text-white text-center">Moisture</div>
-                                <div class="value py-2 text-white text-center">89 cm3</div>
+                                <div class="value py-2 text-white text-center">{{data.moisture}} cm3</div>
                             </div>
                         </div>
                     </div>
@@ -67,21 +68,20 @@
                         <div class="card lg:py-4 md:py-2 sm:py-1 shadow-md rounded-lg lg:w-60 md:w-48 sm:w-44  my-3 mb-20  ">
                             <div class="content">
                                 <div class="title-of-card p-2 mb-5 lg:text-xl md:text-lg text-white text-center">Crop</div>
-                                <div class="value p-2 mt-5 text-white text-center lg:text-2xl md:text-xl">SugarCane</div>
+                                <div class="value p-2 mt-5 text-white text-center lg:text-2xl md:text-xl">Wheat</div>
                             </div>
                         </div>
                         
                         <div class="card lg:py-4 md:py-2 sm:py-1 shadow-md rounded-lg lg:w-60 md:w-48 sm:w-44  my-3 mb-20  ">
                             <div class="content">
-                                <div class="title-of-card p-2 mb-5 lg:text-xl md:text-lg text-white text-center">Nutrient Level</div>
+                                <div class="title-of-card p-2 mb-5 lg:text-xl md:text-lg text-white text-center">Predicted Yield</div>
                                 <div class="values p-2 mt-5">
-                                    <div class="value text-white text-center lg:text-lg md:text-lg">Nitrogen - 83%</div>
-                                    <div class="value text-white text-center lg:text-lg md:text-lg">Potassium - 48%</div>
-                                    <div class="value text-white text-center lg:text-lg md:text-lg">Phosphorus - 30%</div>
+                                    <div class="value text-white text-center lg:text-lg md:text-lg">{{yield_prediction}}</div>
                                 </div>
                                 
                             </div>
                         </div>
+                        <!-- <button class="btn bg-white px-4">Get Latest Data</button>  -->
                     </div>
                 </div>
                 <div class="col col-span-4  border-solid borer-3 lg:py-10 lg:px-10 md:py-5 md:px-5 lg:h-auto flex justify-center">
@@ -95,7 +95,7 @@
                         <div class="card lg:py-4 md:py-2 sm:py-1 shadow-md rounded-lg lg:w-60 md:w-48 sm:w-40  my-3 mb-20  ">
                             <div class="content">
                                 <div class="title-of-card py-2 lg:text-xl md:text-lg text-white text-center">Humidity</div>
-                                <div class="value py-2 text-white text-center">24%</div>
+                                <div class="value py-2 text-white text-center">{{data.humidity}}%</div>
                             </div>
                         </div>
                         <div class="card lg:py-4 md:py-2 sm:py-1 shadow-md rounded-lg lg:w-60 md:w-48 sm:w-40  my-3 mb-20  ">

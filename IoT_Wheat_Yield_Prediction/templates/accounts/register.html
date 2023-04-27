@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'css/output.css' %}" rel="stylesheet" />
+    <title>Register</title>
+  </head>
+  <body>
+    <nav class="nav-bar">
+      <div class="nav-container p-8">
+        <div class="nav flex justify-between">
+          <div class="left-container flex items-center">
+            <div class="app-name text-white text-3xl">AgriMetrix</div>
+          </div>
+
+          <div class="right-container flex justify-between w-28">
+            <a href="">
+              <div class="notification text-white p-2">
+                <img src="{% static 'imgs/bell-icon.png' %}" width="20" alt="" />
+              </div>
+            </a>
+            <a href="">
+              <div class="profile text-white">
+                <img src="{% static 'imgs/profile-icon.png' %}" width="40" height="30" alt="" />
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="flex items-center justify-center">
+      <div
+        class="flex items-center px-4 py-10 sm:px-6 sm:py-16 lg:px-10 lg:py-24 "
+      >
+        <div class=" xl:mx-auto xl:w-screen lg:w-full w-96 xl:max-w-md 2xl:max-w-lg card lg:py-10 lg:px-24 md:py-8 md:px-14 sm:py-8 sm:px-10 py-6 px-8  rounded-lg">
+          <h2 class="text-3xl font-bold leading-tight text-white sm:text-4xl">
+            Sign Up
+          </h2>
+          <p class="mt-2 text-base text-gray-300">
+            Already have an account?
+            <a
+              href="/login"
+              title=""
+              class="font-medium text-indigo-600 transition-all duration-200 hover:text-indigo-700 hover:underline focus:text-indigo-700"
+            >
+              Sign In
+            </a>
+          </p>
+          <form action="/register/" method="POST" class="mt-8">
+            {% csrf_token %}
+            <div class="space-y-5">
+              <div>
+                <label for="name" class="text-base font-medium text-gray-200">
+                  Full Name
+                </label>
+                <div class="mt-2.5">
+                  <input
+                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-700 text-gray-50 dark:focus:ring-gray-400 dark:focus:ring-offset-gray-900"
+                    type="text"
+                    name ="full_name"
+                    placeholder="Enter You Full Name"
+                    id="name"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="email" class="text-base font-medium text-gray-200">
+                  Email address
+                </label>
+                <div class="mt-2.5">
+                  <input
+                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 text-gray-50 focus:ring-offset-gray-900"
+                    type="email"
+                    name="email"
+                    placeholder="Enter Your Email"
+                    id="email"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="email" class="text-base font-medium text-gray-200">
+                  Phone Number
+                </label>
+                <div class="mt-2.5">
+                  <input
+                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 text-gray-50 focus:ring-offset-gray-900"
+                    type="text"
+                    name="phone_number"
+                    placeholder="Enter Your Phone Number"
+                    id="phone_number"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="password"
+                  class="text-base font-medium text-gray-200"
+                >
+                  Password
+                </label>
+                <div class="mt-2.5">
+                  <input
+                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 text-gray-50 focus:ring-offset-gray-900"
+                    type="password"
+                    name="password"
+                    placeholder="Enter Your Password"
+                    id="password"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  for="password"
+                  class="text-base font-medium text-gray-200"
+                >
+                  Confirm Password
+                </label>
+                <div class="mt-2.5">
+                  <input
+                    class="flex h-10 w-full rounded-md border border-gray-300 bg-transparent py-2 px-3 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 text-gray-50 focus:ring-offset-gray-900"
+                    type="password"
+                    name="confirm_password"
+                    placeholder="Confirm Your Password"
+                    id="confirm_password"
+                  />
+                </div>
+              </div>
+              <div>
+                <button
+                  type="submit"
+                  class="inline-flex w-full items-center justify-center rounded-md bg-indigo-600 px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-indigo-500"
+                >
+                  Sign up
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="ml-2 h-4 w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
