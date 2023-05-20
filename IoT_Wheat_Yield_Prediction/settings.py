@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "Cropprediction",
     "accounts",
 ]
 
@@ -83,20 +82,31 @@ WSGI_APPLICATION = "IoT_Wheat_Yield_Prediction.wsgi.application"
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'sql_server.pyodbc',
+#         'NAME': 'cropyieldprediction',
+#         'USER': 'vishwa',
+#         'PASSWORD': 'Cropyieldprediction@123',
+#         'HOST': 'cropyieldpredictionserver.database.windows.net',
+#         'PORT': '',
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#             'MARS_Connection': True,
+#         },
+#     },
+     
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'sql_server.pyodbc',
-        'NAME': 'cropyieldprediction',
-        'USER': 'vishwa',
-        'PASSWORD': 'Cropyieldprediction@123',
-        'HOST': 'cropyieldpredictionserver.database.windows.net',
-        'PORT': '',
-        'OPTIONS': {
-            'driver': 'ODBC Driver 17 for SQL Server',
-            'MARS_Connection': True,
-        },
-    },
-     
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'IoT_Crop_Yield_Prediction', 
+        'USER': 'postgres',
+        'PASSWORD': '001',
+        'HOST': '127.0.0.1', 
+        'PORT': '5432',
+    }
 }
 
 
