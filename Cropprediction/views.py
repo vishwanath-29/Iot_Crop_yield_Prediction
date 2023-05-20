@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Valuesfromsensor
+# from .models import Valuesfromsensor
 import pytz
 import random
 import pickle
-import pandas as pd
+# import pandas as pd
+
 # Home Page
 
 def yield_prediction(temperature,humidity,pH,moisture,rainfall):
@@ -51,8 +52,8 @@ def prediction_page(request):
     return render(request,"Cropprediction/index.html",{'data':sensor_values,'yield_prediction':yield_predicted})
     
 
-def home(request):
+# def home(request):
     
-    # return render(request,"Cropprediction/index.html")
-    return HttpResponse("Home")
+#     # return render(request,"Cropprediction/index.html")
+#     return HttpResponse("Home")
     
