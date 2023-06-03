@@ -75,29 +75,6 @@ WSGI_APPLICATION = "IoT_Wheat_Yield_Prediction.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'sql_server.pyodbc',
-#         'NAME': 'cropyieldprediction',
-#         'USER': 'vishwa',
-#         'PASSWORD': 'Cropyieldprediction@123',
-#         'HOST': 'cropyieldpredictionserver.database.windows.net',
-#         'PORT': '',
-#         'OPTIONS': {
-#             'driver': 'ODBC Driver 17 for SQL Server',
-#             'MARS_Connection': True,
-#         },
-#     },
-     
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
